@@ -9,11 +9,16 @@ import {drawerWidth} from './SideBar';
 
 const useStyles = makeStyles((theme)=>({
   appBarMargin:{
-    marginLeft:drawerWidth,
+    [theme.breakpoints.up('sm')]:{
+      // marginLeft:2,
+  },
+  [theme.breakpoints.up('md')]:{
+    marginLeft:drawerWidth+20,
+  },
     transition:theme.transitions.create()
   },
   inputStyle:{
-    width:'300px',
+    width:'200px',
     background:'#272727',
     height:'30px',
     border:'none',
@@ -44,11 +49,11 @@ function Navbar({open , setOpen}) {
         <Box sx={{display:'flex',width:'100%', justifyContent:'space-between' }}>
             <Box sx={{mx:'auto'}}>
               <input placeholder="Search here ..." className={classes.inputStyle} type="text" />
-              <Button color="secondary"  >Search</Button>
+              <Button color="secondary" size='small' >Search</Button>
             </Box>
             <Box>
               <Button variant="contained" size="small" sx={{mr:1}} color="info">Login</Button>
-              <Button variant="contained" size="small" color="info">Signup</Button>
+              {/* <Button variant="contained" size="small" color="info">Signup</Button> */}
             </Box>
         </Box>
       </Toolbar>
